@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Weather App V.2</string>
+    <string name="search_description">ชื่อเมือง (ภาษาอังกฤษ)</string>
+    <string name="search">ค้นหา</string>
+    <string name="temperature_and_humidity">อุณหภูมิและความชื้น</string>
+    <string name="city_code">รหัสเมือง</string>
+    <string name="city_name">ชื่อเมือง</string>
+    <string name="weather">สภาพอากาศ</string>
+    <string name="description">คำอธิบาย</string>
+    <string name="temperature">อุณหภูมิ</string>
+    <string name="temperature_max">อุณหภูมิสูงสุด</string>
+    <string name="temperature_min">อุณหภูมิต่ำสุด</string>
+    <string name="temperature_feels_like">อุณหภูมิตามความรู้สึก</string>
+    <string name="humidity">ความชื้น</string>
+    <string name="error_description">เกิดข้อผิดพลาด ลองใหม่อีกครั้ง</string>
+    <string name="back">ย้อนกลับ</string>
+</resources>

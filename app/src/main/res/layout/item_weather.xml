@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dimen_small">
+
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="@dimen/dimen_extra"
+        android:layout_height="@dimen/dimen_extra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_holder"/>
+
+    <TextView
+        android:id="@+id/weatherMainTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_normal"
+        android:text="@string/weather"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/weatherImage"
+        app:layout_constraintTop_toTopOf="@+id/weatherImage" />
+
+    <TextView
+        android:id="@+id/weatherMainValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_normal"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherMainTitle"
+        app:layout_constraintStart_toEndOf="@+id/weatherMainTitle"
+        app:layout_constraintTop_toTopOf="@+id/weatherMainTitle"
+        tools:text="cloud" />
+
+    <TextView
+        android:id="@+id/weatherDescriptionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_normal"
+        android:text="@string/description"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherImage"
+        app:layout_constraintStart_toEndOf="@+id/weatherImage"
+        app:layout_constraintTop_toBottomOf="@+id/weatherMainTitle" />
+
+    <TextView
+        android:id="@+id/weatherDescriptionValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_normal"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherDescriptionTitle"
+        app:layout_constraintStart_toEndOf="@+id/weatherDescriptionTitle"
+        app:layout_constraintTop_toTopOf="@+id/weatherDescriptionTitle"
+        tools:text="broken_cloud" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dimen_small">
+
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="@dimen/dimen_extra"
+        android:layout_height="@dimen/dimen_extra"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_holder"/>
+
+    <TextView
+        android:id="@+id/temperatureTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_normal"
+        android:text="@string/temperature"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/weatherImage"
+        app:layout_constraintTop_toTopOf="@+id/weatherImage" />
+
+    <TextView
+        android:id="@+id/temperatureCelsiusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_normal"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/temperatureTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/temperatureTitle"
+        tools:text="25°C" />
+
+
+    <TextView
+        android:id="@+id/temperatureFahrenheitValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/temperatureCelsiusValue"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureCelsiusValue"
+        tools:text="50°F" />
+
+    <TextView
+        android:id="@+id/temperatureFeelLikeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature_feels_like"
+        android:layout_marginTop="@dimen/dimen_normal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weatherImage" />
+
+    <TextView
+        android:id="@+id/temperatureFeelLikeCelsiusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_normal"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/temperatureFeelLikeTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/temperatureFeelLikeTitle"
+        tools:text="25°C" />
+
+
+    <TextView
+        android:id="@+id/temperatureFeelLikeFahrenheitValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/temperatureFeelLikeCelsiusValue"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureFeelLikeCelsiusValue"
+        tools:text="50°F" />
+
+    <TextView
+        android:id="@+id/temperatureMaxTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_normal"
+        android:text="@string/temperature_max"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureFeelLikeFahrenheitValue" />
+
+    <TextView
+        android:id="@+id/temperatureMaxCelsiusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_normal"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/temperatureMaxTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/temperatureMaxTitle"
+        tools:text="25°C" />
+
+
+    <TextView
+        android:id="@+id/temperatureMaxFahrenheitValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/temperatureMaxCelsiusValue"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureMaxCelsiusValue"
+        tools:text="50°F" />
+
+    <TextView
+        android:id="@+id/temperatureMinTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_normal"
+        android:text="@string/temperature_min"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureMaxFahrenheitValue" />
+
+    <TextView
+        android:id="@+id/temperatureMinCelsiusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_normal"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/temperatureMinTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/temperatureMinTitle"
+        tools:text="25°C" />
+
+
+    <TextView
+        android:id="@+id/temperatureMinFahrenheitValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/temperatureMinCelsiusValue"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureMinCelsiusValue"
+        tools:text="50°F" />
+
+    <TextView
+        android:id="@+id/humidityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_normal"
+        android:layout_weight="1"
+        android:text="@string/humidity"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureMinFahrenheitValue" />
+
+    <TextView
+        android:id="@+id/humidityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_normal"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/humidityTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/humidityTitle"
+        tools:text="70%" />
+</androidx.constraintlayout.widget.ConstraintLayout>
