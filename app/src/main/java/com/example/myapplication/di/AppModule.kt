@@ -37,5 +37,5 @@ val useCaseModule = module {
 
 val viewModelModule = module {
     viewModel { WeatherViewModel(get()) }
-    viewModel { TemperatureViewModel(get()) }
+    viewModel { TemperatureViewModel() }
 }
