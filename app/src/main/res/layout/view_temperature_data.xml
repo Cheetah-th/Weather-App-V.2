@@ -34,7 +34,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/temperatureTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/temperatureTitle"
-        tools:text="25°C" />
+        tools:text="35°C" />
 
 
     <TextView
@@ -42,9 +42,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/temperatureCelsiusValue"
+        app:layout_constraintEnd_toEndOf="@+id/temperatureCelsiusValue"
         app:layout_constraintTop_toBottomOf="@+id/temperatureCelsiusValue"
-        tools:text="50°F" />
+        tools:text="150°F" />
 
     <TextView
         android:id="@+id/temperatureFeelLikeTitle"
@@ -74,9 +74,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/temperatureFeelLikeCelsiusValue"
+        app:layout_constraintEnd_toEndOf="@+id/temperatureFeelLikeCelsiusValue"
         app:layout_constraintTop_toBottomOf="@+id/temperatureFeelLikeCelsiusValue"
-        tools:text="50°F" />
+        tools:text="120°F" />
 
     <TextView
         android:id="@+id/temperatureMaxTitle"
@@ -98,7 +98,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/temperatureMaxTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/temperatureMaxTitle"
-        tools:text="25°C" />
+        tools:text="50°C" />
 
 
     <TextView
@@ -106,9 +106,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/temperatureMaxCelsiusValue"
+        app:layout_constraintEnd_toEndOf="@+id/temperatureMaxCelsiusValue"
         app:layout_constraintTop_toBottomOf="@+id/temperatureMaxCelsiusValue"
-        tools:text="50°F" />
+        tools:text="170°F" />
 
     <TextView
         android:id="@+id/temperatureMinTitle"
@@ -138,9 +138,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/temperatureMinCelsiusValue"
+        app:layout_constraintEnd_toEndOf="@+id/temperatureMinCelsiusValue"
         app:layout_constraintTop_toBottomOf="@+id/temperatureMinCelsiusValue"
-        tools:text="50°F" />
+        tools:text="250°F" />
 
     <TextView
         android:id="@+id/humidityTitle"
