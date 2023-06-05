@@ -14,7 +14,7 @@ class WeatherViewModel(private val getWeatherDataUseCase: GetWeatherDataUseCase)
 
     private val disposable = CompositeDisposable()
 
-    var weatherModel: WeatherModel? = WeatherModel()
+    var weatherModel: WeatherModel = WeatherModel()
 
     private val _weatherData: MutableLiveData<WeatherModel> by lazy { MutableLiveData() }
     val weatherData: LiveData<WeatherModel> by lazy { _weatherData }

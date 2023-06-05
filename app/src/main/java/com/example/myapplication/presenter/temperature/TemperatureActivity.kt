@@ -3,16 +3,15 @@ package com.example.myapplication.presenter.temperature
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityTemperatureBinding
+import com.example.myapplication.datasource.model.WeatherModel
+import com.example.myapplication.utils.FormatString
 import org.koin.android.ext.android.inject
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class TemperatureActivity : AppCompatActivity() {
 
     private val viewModel: TemperatureViewModel by inject()
+    private val formatString: FormatString by lazy { FormatString() }
     private lateinit var binding: ActivityTemperatureBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,37 +25,43 @@ class TemperatureActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        viewModel.weatherModel = intent.getParcelableExtra(EXTRA_WEATHER_MODEL)
+        viewModel.weatherModel = intent.getParcelableExtra(EXTRA_WEATHER_MODEL) ?: WeatherModel()
     }
 
     private fun initView() {
         binding.apply {
-            cityCodeTextView.text = viewModel.weatherModel?.sys?.country
-            cityNameTextView.text = viewModel.weatherModel?.name
-            dateTimeTextView.text = epochToDateTime(viewModel.weatherModel?.dt?.toLong())
+            cityCodeTextView.text = viewModel.weatherModel.sys.country
+            cityNameTextView.text = viewModel.weatherModel.name
+            dateTimeTextView.text = formatString.epochToDateTime(viewModel.weatherModel.dt.toLong())
+
             cityCodeTextView.visibility = View.VISIBLE
             cityNameTextView.visibility = View.VISIBLE
             dateTimeTextView.visibility = View.VISIBLE
-            temperatureView.weatherImage.setImageResource(
-                viewModel.weatherModel?.weather?.first()?.icon?.image
-                    ?: R.drawable.ic_holder
-            )
-            temperatureView.temperatureCelsiusValue.text = "${viewModel.weatherModel?.main?.temp}°C"
+
+            temperatureView.weatherImage.setImageResource(viewModel.weatherModel.weather.first().icon.image)
+
+            temperatureView.temperatureCelsiusValue.text =
+                formatString.celsiusFormat(viewModel.weatherModel.main.temp)
             temperatureView.temperatureFahrenheitValue.text =
-                "${celsiusToFahrenheit(viewModel.weatherModel?.main?.temp)}°F"
+                formatString.celsiusToFahrenheitFormat(viewModel.weatherModel.main.temp)
+
             temperatureView.temperatureFeelLikeCelsiusValue.text =
-                "${viewModel.weatherModel?.main?.feels_like}°C"
+                formatString.celsiusFormat(viewModel.weatherModel.main.feels_like)
             temperatureView.temperatureFeelLikeFahrenheitValue.text =
-                "${celsiusToFahrenheit(viewModel.weatherModel?.main?.feels_like)}°F"
+                formatString.celsiusToFahrenheitFormat(viewModel.weatherModel.main.feels_like)
+
             temperatureView.temperatureMaxCelsiusValue.text =
-                "${viewModel.weatherModel?.main?.temp_max}°C"
+                formatString.celsiusFormat(viewModel.weatherModel.main.temp_max)
             temperatureView.temperatureMaxFahrenheitValue.text =
-                "${celsiusToFahrenheit(viewModel.weatherModel?.main?.temp_max)}°F"
+                formatString.celsiusToFahrenheitFormat(viewModel.weatherModel.main.temp_max)
+
             temperatureView.temperatureMinCelsiusValue.text =
-                "${viewModel.weatherModel?.main?.temp_min}°C"
+                formatString.celsiusFormat(viewModel.weatherModel.main.temp_min)
             temperatureView.temperatureMinFahrenheitValue.text =
-                "${celsiusToFahrenheit(viewModel.weatherModel?.main?.temp_min)}°F"
-            temperatureView.humidityValue.text = "${viewModel.weatherModel?.main?.humidity}%"
+                formatString.celsiusToFahrenheitFormat(viewModel.weatherModel.main.temp_min)
+
+            temperatureView.humidityValue.text =
+                formatString.humidityFormat(viewModel.weatherModel.main.humidity)
             temperatureView.root.visibility = View.VISIBLE
         }
     }
@@ -65,24 +70,6 @@ class TemperatureActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             finish()
         }
-    }
-
-    private fun epochToDateTime(epoch: Long?): String {
-        var dateTime = ""
-        epoch?.let {
-            val date = Date(epoch.times(1000))
-            val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-            dateTime = format.format(date)
-        }
-        return dateTime
-    }
-
-    private fun celsiusToFahrenheit(celsius: Double?): String {
-        var fahrenheit = ""
-        celsius?.let {
-            fahrenheit = "%.2f".format(celsius * 1.8 + 32)
-        }
-        return fahrenheit
     }
 
     companion object {

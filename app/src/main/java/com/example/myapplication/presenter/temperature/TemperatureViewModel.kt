@@ -8,7 +8,7 @@ class TemperatureViewModel : ViewModel() {
 
     private val disposable = CompositeDisposable()
 
-    var weatherModel: WeatherModel? = WeatherModel()
+    var weatherModel: WeatherModel = WeatherModel()
 
     override fun onCleared() {
         super.onCleared()

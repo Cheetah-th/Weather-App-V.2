@@ -11,6 +11,7 @@ import com.example.myapplication.databinding.ActivityWeatherBinding
 import com.example.myapplication.datasource.model.Weather
 import com.example.myapplication.presenter.temperature.TemperatureActivity
 import com.example.myapplication.presenter.weather.adapter.WeatherAdapter
+import com.example.myapplication.utils.FormatString
 import org.koin.android.ext.android.inject
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -19,6 +20,7 @@ import java.util.Locale
 class WeatherActivity : AppCompatActivity() {
 
     private val viewModel: WeatherViewModel by inject()
+    private val formatString: FormatString by lazy { FormatString() }
     private lateinit var binding: ActivityWeatherBinding
     private lateinit var adapter: WeatherAdapter
     private lateinit var getSharedPreferences: SharedPreferences
@@ -70,17 +72,18 @@ class WeatherActivity : AppCompatActivity() {
         viewModel.weatherData.observe(this) { data ->
             binding.apply {
                 data?.let {
-                    Log.d("Cheetah God", it.toString())
+                    initRecyclerView(it.weather.toMutableList())
                     cityCodeTextView.text = it.sys.country
                     cityNameTextView.text = it.name
-                    dateTimeTextView.text = epochToDateTime(it.dt.toLong())
+                    dateTimeTextView.text = formatString.epochToDateTime(it.dt.toLong())
+
                     errorTextView.visibility = View.GONE
                     progressbarLoading.visibility = View.GONE
                     cityCodeTextView.visibility = View.VISIBLE
                     cityNameTextView.visibility = View.VISIBLE
                     dateTimeTextView.visibility = View.VISIBLE
-                    initRecyclerView(it.weather.toMutableList())
                     weatherRecyclerView.visibility = View.VISIBLE
+
                     navigateToTemperatureButton.isEnabled = true
                 }
             }
@@ -119,16 +122,6 @@ class WeatherActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun epochToDateTime(epoch: Long?): String {
-        var dateTime = ""
-        epoch?.let {
-            val date = Date(epoch.times(1000))
-            val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-            dateTime = format.format(date)
-        }
-        return dateTime
     }
 
     companion object {
