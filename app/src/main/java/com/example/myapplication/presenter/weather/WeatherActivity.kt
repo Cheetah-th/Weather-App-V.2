@@ -3,7 +3,6 @@ package com.example.myapplication.presenter.weather
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,9 +12,6 @@ import com.example.myapplication.presenter.temperature.TemperatureActivity
 import com.example.myapplication.presenter.weather.adapter.WeatherAdapter
 import com.example.myapplication.utils.FormatString
 import org.koin.android.ext.android.inject
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class WeatherActivity : AppCompatActivity() {
 
