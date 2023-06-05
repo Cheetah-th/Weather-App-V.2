@@ -21,6 +21,6 @@ class FormatString {
     }
 
     fun humidityFormat(humidity: Int): String {
-        return "${humidity}°F"
+        return "${humidity}%"
     }
 }

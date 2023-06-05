@@ -11,7 +11,7 @@ import org.koin.android.ext.android.inject
 class TemperatureActivity : AppCompatActivity() {
 
     private val viewModel: TemperatureViewModel by inject()
-    private val formatString: FormatString by lazy { FormatString() }
+    private lateinit var formatString: FormatString
     private lateinit var binding: ActivityTemperatureBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +19,7 @@ class TemperatureActivity : AppCompatActivity() {
         binding = ActivityTemperatureBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        formatString = FormatString()
         initData()
         initView()
         initListener()

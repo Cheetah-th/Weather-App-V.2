@@ -16,7 +16,7 @@ import org.koin.android.ext.android.inject
 class WeatherActivity : AppCompatActivity() {
 
     private val viewModel: WeatherViewModel by inject()
-    private val formatString: FormatString by lazy { FormatString() }
+    private lateinit var formatString: FormatString
     private lateinit var binding: ActivityWeatherBinding
     private lateinit var adapter: WeatherAdapter
     private lateinit var getSharedPreferences: SharedPreferences
@@ -27,6 +27,7 @@ class WeatherActivity : AppCompatActivity() {
         binding = ActivityWeatherBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        formatString = FormatString()
         initData()
         initListener()
         onObservable()
